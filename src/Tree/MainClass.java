@@ -7,9 +7,12 @@ public class MainClass {
 		bt.insert(2);
 		bt.insert(1);
 		bt.insert(5);
+		bt.insert(4);
 		bt.insert(7);
-		ValidateBinarySearchTree vt = new ValidateBinarySearchTree();
-		System.out.println(vt.isBinarySearchTree(bt.root));
+		
+		bt.preOrderTraversal();
+		
+		
 	}
 
 }
