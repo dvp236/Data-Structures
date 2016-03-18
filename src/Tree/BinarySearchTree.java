@@ -59,5 +59,32 @@ public class BinarySearchTree {
 			preOrderTraversalHelper(currentNode.getRight());
 		}
 	}
+	
+	public int findmin(){
+		int min = findmin(root);
+		return min;
+	}
+	private int findmin(Node node){
+		if(node.getLeft()==null){
+			return node.getData();
+		}
+		else{
+			return findmin(node.getLeft());
+		}
+		
+	}
+	
+	public int findmax(){
+		int max = findmax(root);
+		return max;
+	}
+	
+	private int findmax(Node node){
+		if(node.getRight()==null){
+			return node.getData();
+		}else{
+			return findmax(node.getRight());
+		}
+	}
 
 }

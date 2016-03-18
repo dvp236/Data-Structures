@@ -11,6 +11,9 @@ public class MainClass {
 		bt.insert(7);
 		
 		bt.preOrderTraversal();
+		System.out.println("----");
+		System.out.println(bt.findmin());
+		System.out.println(bt.findmax());
 		
 		
 	}
