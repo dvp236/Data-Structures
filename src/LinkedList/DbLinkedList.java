@@ -56,17 +56,38 @@ public class DbLinkedList {
 			return;
 		}
 		
-		tail.setLeft(newNode);
+		tail.setRight(newNode);
+		newNode.setLeft(tail);
 		tail = newNode;
 		lenOfList++;
 		
+	}
+	
+	public void addAtIndex(int data, int index){
+		Node next = getNode(index);
+		Node prev = next.getLeft();
+		Node newNode = new Node(data);
+		prev.setRight(newNode);
+		newNode.setLeft(prev);
+		newNode.setRight(next);
+		
+	}
+	
+	private Node getNode(int index){
+		int cnt= 0;
+		Node curr = head;
+		while(cnt != index){
+			curr = curr.getRight();
+			cnt++;
+		}
+		return curr;
 	}
 	
 	public void printList(){
 		Node curr = head;
 		while(curr != null){
 			System.out.println(curr.getData());
-			curr = curr.getLeft();
+			curr = curr.getRight();
 		}
 	}
 	
