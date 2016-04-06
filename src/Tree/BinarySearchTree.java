@@ -86,5 +86,17 @@ public class BinarySearchTree {
 			return findmax(node.getRight());
 		}
 	}
+	
+	public int getHeight(){
+		return getHeighthelper(root);
+	}
+	
+	private int getHeighthelper(Node node){
+		if(node == null){
+			return -1;
+		}
+		return Math.max(getHeighthelper(node.getLeft()), getHeighthelper(node.getRight()))+ 1;
+	
+	}
 
 }

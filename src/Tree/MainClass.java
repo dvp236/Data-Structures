@@ -9,11 +9,15 @@ public class MainClass {
 		bt.insert(5);
 		bt.insert(4);
 		bt.insert(7);
+		bt.insert(9);
 		
 		bt.preOrderTraversal();
 		System.out.println("----");
 		System.out.println(bt.findmin());
 		System.out.println(bt.findmax());
+		
+		System.out.println("---height----");
+		System.out.println(bt.getHeight());
 		
 		
 	}
