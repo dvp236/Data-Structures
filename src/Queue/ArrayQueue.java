@@ -67,6 +67,5 @@ public class ArrayQueue {
 		q.enQueue(2);
 		System.out.println(q.deQueue());
 		
-		
 	}
 }
