@@ -7,7 +7,7 @@ public class LinkedList {
 	Node tail;
 	
 	//we are taking len counter to track size of list 
-	int len = 0;
+	private int len = 0;
 	
 	//Class Node 
 	private class Node {
