@@ -9,7 +9,7 @@ public class MainClass {
 		bt.insert(5);
 		bt.insert(4);
 		bt.insert(7);
-		bt.insert(9);
+		
 		
 		bt.preOrderTraversal();
 		System.out.println("----");

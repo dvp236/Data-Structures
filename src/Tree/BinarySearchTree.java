@@ -93,7 +93,7 @@ public class BinarySearchTree {
 	
 	private int getHeighthelper(Node node){
 		if(node == null){
-			return -1;
+			return 0;
 		}
 		return Math.max(getHeighthelper(node.getLeft()), getHeighthelper(node.getRight()))+ 1;
 	
