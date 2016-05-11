@@ -4,6 +4,7 @@ package Tree;
 public class BinarySearchTree {
 	Node root;
 	
+	//method to check if the node is leaf node or not
 	private boolean isLeafNode(Node currentNode){
 		return (currentNode.getLeft() == null && currentNode.getRight()==null);
 	}
