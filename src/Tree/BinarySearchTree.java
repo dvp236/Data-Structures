@@ -8,6 +8,8 @@ public class BinarySearchTree {
 	private boolean isLeafNode(Node currentNode){
 		return (currentNode.getLeft() == null && currentNode.getRight()==null);
 	}
+	
+	//insert data into Tree
 	public void insert(int data){
 		Node newNode = new Node(data);
 		if(root==null){
@@ -18,11 +20,19 @@ public class BinarySearchTree {
 	}
 	
 	private void insertHelper(Node currentNode,Node newNode){
+		//check if data is smaller than current Node's data
+		//if this is true than new node belongs to left of 
+		//this node
 		if(newNode.getData() < currentNode.getData()){
-			
+			//if the current node does not have left child
+			//then set new node to be its left child
 			if(currentNode.getLeft() == null){
 				currentNode.setLeft(newNode);
 			} else{
+				//else we should keep looking for right place 
+				//for our new node. Since we have determined new
+				//node belongs to left sub tree we will call this 
+				//method recursively this time passing left node.
 				currentNode = currentNode.getLeft();
 				insertHelper(currentNode, newNode);
 			}
