@@ -37,10 +37,15 @@ public class BinarySearchTree {
 				insertHelper(currentNode, newNode);
 			}
 		} else {
-			
+			//if the node data is greater than current node's data
+			//we will look for right side of the tree
+			//if the node does not have right node then just 
+			//set its right to be new node
 			if(currentNode.getRight() == null){
 				currentNode.setRight(newNode);
 			} else{
+				//if that is not the case then recursively call again
+				//with current node as right child 
 				currentNode = currentNode.getRight();
 				insertHelper(currentNode, newNode);
 			}
