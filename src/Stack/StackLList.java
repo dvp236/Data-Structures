@@ -40,6 +40,13 @@ public class StackLList {
 		top = top.getNext();
 	}
 	
+	public int peek(){
+		if(top != null){
+			return top.getData();
+		}
+		return 0;
+	}
+	
 	public void printStack(){
 		printHelp(top);		 
 	}
