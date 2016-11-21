@@ -9,14 +9,14 @@ import java.util.Arrays;
  *
  */
 public class Heap {
-	private static final int CAPACITY = 4;
+	private static final int CAPACITY = 2;
 	
 	private int size;
 	private int[] heap;
 	
 	public Heap(){
-		this.size = CAPACITY;
-		heap= new int[this.size];
+		this.size = 0;
+		heap= new int[CAPACITY];
 	}
 	
 	public void doubleSize(){
@@ -25,45 +25,51 @@ public class Heap {
 	    System.arraycopy(old, 1, heap, 1, size);
 	}
 	
-	private void percolatingDown(int k){
-	      int tmp = heap[k];
-	      int child;
-
-	      for(; 2*k <= size; k = child)
-	      {
-	         child = 2*k;
-
-	         if(child != size &&
-	            heap[child]>heap[child + 1]) child++;
-
-	         if(tmp > heap[child])  heap[k] = heap[child];
-	         else
-	                break;
-	      } 
-	      heap[k] = tmp;
-	   }
-
-	 public void insert(int x){
+	public void insert(int x){
 	      if(size == heap.length - 1) doubleSize();
 
 	      //Insert a new item to the end of the array
 	      int pos = ++size;
 
-	      //Percolate up
-	      for(; pos > 1 && x < heap[pos/2] ; pos = pos/2 )
-	         heap[pos] = heap[pos/2];
-
+	      //percolating up
+	     while(pos > 1 && x < getParent(pos)){
+	    	  heap[pos] = getParent(pos);
+	    	  pos = pos/2;
+	      }
+	      
 	      heap[pos] = x;
-	   }
+	      
+	    
+	 }
+	 
+	 public void percolateDown(int pos){
+
+	 }
+	 
+	 public int deleteMin(){
+		 int min = heap[1];
+		 heap[1] = heap[size--];
+		 percolateDown(1);
+		 return min;
+	 }
 	
+	 public int getParent(int pos){
+		 return heap[pos/2];
+	 }
 	
-	public void printHeap(int[] a){
-		System.out.println(Arrays.toString(a));
+	public void printHeap(){
+		System.out.println(Arrays.toString(heap));
 	}
 	
 	
 	
 	public static void main(String[] args){
-		
+		Heap h = new Heap();
+		h.insert(5);
+		h.insert(4);
+		h.insert(1);
+		h.insert(6);
+		h.insert(0);
+		h.printHeap();
 	}
 }
