@@ -19,11 +19,19 @@ public class Heap {
 		heap= new int[CAPACITY];
 	}
 	
+	private void buildHeap(){
+		for(int k=size/2; k>0; k--){
+			percolateDown(k);
+		}
+	}
+	
 	public void doubleSize(){
 		int[] old = heap;
 	    heap = new int[heap.length * 2];
 	    System.arraycopy(old, 1, heap, 1, size);
 	}
+	
+	
 	
 	public void insert(int x){
 	      if(size == heap.length - 1) doubleSize();
@@ -41,9 +49,21 @@ public class Heap {
 	      
 	    
 	 }
-	 
-	 public void percolateDown(int pos){
-
+	
+	 private void percolateDown(int pos){
+		 int tmp = heap[pos];
+		 int child;
+		 while(2*pos < size ){
+			 child = 2*pos;
+			 if(heap[child] > heap[child+1]) child++;
+			 
+			 if(tmp > heap[child]) heap[pos] = heap[child];
+			 else break;
+			 
+			 pos = child;
+		 }
+		 
+		 heap[pos] = tmp;
 	 }
 	 
 	 public int deleteMin(){
@@ -58,18 +78,15 @@ public class Heap {
 	 }
 	
 	public void printHeap(){
-		System.out.println(Arrays.toString(heap));
+		for(int i=1; i<=size; i++){
+			System.out.print(heap[i]+" ");
+		}
+		System.out.println();
 	}
 	
 	
 	
 	public static void main(String[] args){
 		Heap h = new Heap();
-		h.insert(5);
-		h.insert(4);
-		h.insert(1);
-		h.insert(6);
-		h.insert(0);
-		h.printHeap();
 	}
 }
