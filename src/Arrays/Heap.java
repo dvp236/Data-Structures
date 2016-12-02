@@ -39,7 +39,7 @@ public class Heap {
 	      //Insert a new item to the end of the array
 	      int pos = ++size;
 
-	      //percolating up
+	      //percolate up
 	     while(pos > 1 && x < getParent(pos)){
 	    	  heap[pos] = getParent(pos);
 	    	  pos = pos/2;
