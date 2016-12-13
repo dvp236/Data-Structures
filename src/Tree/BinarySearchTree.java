@@ -105,7 +105,6 @@ public class BinarySearchTree {
 		
 		replacementNode.setLeft(currentNode.left);
 		replacementNode.setRight(currentNode.right);
-		//currentNode = null;
 		
 	}
 	
