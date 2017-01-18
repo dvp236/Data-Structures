@@ -90,7 +90,6 @@ public class BinarySearchTree {
 			}
 		}
 		
-		System.out.println("current" +currentNode.data+"  isleft"+isLeftChild);
 		
 		if(isLeafNode(currentNode)){
 			if(isLeftChild) parent.setLeft(null);
@@ -99,7 +98,6 @@ public class BinarySearchTree {
 		}
 		
 		replacementNode = getReplacementNode(currentNode);
-		System.out.println("replacement "+replacementNode.data);
 		if(isLeftChild) parent.setLeft(replacementNode);
 		else parent.setRight(replacementNode);
 		
@@ -114,7 +112,7 @@ public class BinarySearchTree {
 			currentNode = currentNode.getRight();
 		}
 		if(currentNode.getLeft() == null){
-			parent.setRight(null);
+			parent.setRight(currentNode.right);
 			return currentNode;
 		}
 		while(currentNode.getLeft() != null){
