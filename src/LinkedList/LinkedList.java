@@ -149,4 +149,8 @@ public class LinkedList {
 		}
 	}
 	
+	//if we have to shuffle the list we can add methods like insertFront insertRead
+	//then depending on random number 0/1 we can traverse from current list and 
+	//build new linked list and return head. Both time and space complexity will be O(N)
+	
 }
