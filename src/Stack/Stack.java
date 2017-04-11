@@ -7,12 +7,12 @@
 package Stack;
 
 public class Stack {
-	int top = -1;
-	int[] arr;
-	int size;
+	private int top = -1;
+	private int[] arr;
+	private int size;
 	// constructor to initialize the stack
-	public Stack(int size) {
-		this.size = size;
+	public Stack() {
+		this.size = 2;
 		arr = new int[this.size];
 	}
 	// resize stack;
@@ -44,7 +44,7 @@ public class Stack {
 		 * if (top == (size - 1)) { System.out.println("Stack OverFlow :P");
 		 * return; }
 		 */
-		if (top == this.size / 2) {
+		if (top == this.size -1) {
 			resize(this.size * 2);
 		}
 		arr[++top] = n;
@@ -64,21 +64,21 @@ public class Stack {
 		return arr[top--];
 	}
 	// prints whole stack
-	public void printStack() {
-		if (top < 0) {
-			return;
-		}
-		for (int i = 0; i <= top; i++) {
-			System.out.println(arr[i]);
-		}
-	}
+//	public void printStack() {
+//		if (top < 0) {
+//			return;
+//		}
+//		for (int i = 0; i <= top; i++) {
+//			System.out.println(arr[i]);
+//		}
+//	}
 	// give current size of stack
 	public void stackSize() {
 		System.out.println("size:" + (top + 1));
 	}
 	// gives capacity of stack.
-	public void capacity() {
-		System.out.println("capacity: " + size);
-	}
+//	public void capacity() {
+//		System.out.println("capacity: " + size);
+//	}
 }
 
