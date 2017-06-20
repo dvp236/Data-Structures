@@ -14,10 +14,12 @@ import edu.princeton.cs.algs4.Queue;
 public class BST<Key extends Comparable<Key>, Value> {
 	BSTNode root;
 	
+	//Node
 	private class BSTNode{
 		BSTNode left, right;
 		Key key;
 		Value val;
+		//Number of children of the node
 		int size;
 		
 		public BSTNode(Key key, Value val, int size){
