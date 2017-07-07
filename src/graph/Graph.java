@@ -1,6 +1,7 @@
 package graph;
 
 import bag.Bag;
+import edu.princeton.cs.algs4.In;
 
 public class Graph {
 	private final int V;
@@ -12,11 +13,31 @@ public class Graph {
 		
 		this.V = V;
 		this.E = 0;
+		//initialize array of bags
 		adj = (Bag<Integer>[]) new Bag[V];
 		for ( int v = 0; v < V; v++ ) {
+			//initialize bag for each one
 			adj[v] = new Bag<Integer>();
 		}
 		
+	}
+	
+	//read from input
+	public Graph(In in) {
+		this.V = in.readInt();
+		adj = (Bag<Integer>[])new Bag[V];
+		for(int v = 0; v < V; v++) {
+			adj[v] = new Bag<Integer>();
+		}
+		
+		int totalEdges = in.readInt();
+		for(int e = 0; e < totalEdges; e++) {
+			int v = in.readInt();
+			int u = in.readInt();
+			validateVertex(v);
+			validateVertex(u);
+			addEdge(v, u); 
+		}
 	}
 	
 	public int V() {
@@ -49,19 +70,36 @@ public class Graph {
 		validateVertex(v);
 		return adj[v].size();
 	}
-	
+
 	public String toString() {
-		 StringBuilder s = new StringBuilder();
-	        s.append(V + " vertices, " + E + " edges \n");
-	        for (int v = 0; v < V; v++) {
-	            s.append(v + ": ");
-	            for (int w : adj[v]) {
-	                s.append(w + " ");
-	            }
-	            s.append("\n");
-	        }
-	        return s.toString();
+		StringBuilder sb = new StringBuilder();
+		sb.append(V + " vertices, " + E + " edges \n");
+		for(int v = 0; v < V; v++) {
+			sb.append(v + " : ");
+			for(int u: adj[v]) {
+				sb.append(u + " ");
+			}
+			sb.append("\n");
+		}
+		
+		return sb.toString();
+		 
 	}
 	
+	public static void main(String[] args) {
+		System.out.println("graph example");
+		
+		Graph G = new Graph(10);
+		G.addEdge(1, 2);
+		G.addEdge(2, 3);
+		G.addEdge(2, 4);
+		G.addEdge(2, 5);
+		
+		System.out.println(G.toString());
+		
+		//System.out.println(G.V());
+		System.out.println("degree of vertex 2: " +G.degree(2));
+		
+	}
 
 }

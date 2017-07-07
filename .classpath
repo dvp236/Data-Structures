@@ -3,6 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/Users/dharmik/Practice/Work_Java/algs4.jar"/>
+	<classpathentry kind="lib" path="/Users/dharmik/Practice/javaworks/algs4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
