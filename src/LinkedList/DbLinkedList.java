@@ -70,6 +70,7 @@ public class DbLinkedList {
 		prev.setRight(newNode);
 		newNode.setLeft(prev);
 		newNode.setRight(next);
+		next.setLeft(newNode);
 		
 	}
 	
